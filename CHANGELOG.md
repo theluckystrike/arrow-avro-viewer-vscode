@@ -5,6 +5,8 @@
 - The status line at the bottom of the viewer has two small links, "Sponsor" (GitHub Sponsors) and "More free viewers". The new setting `arrowAvroViewer.showSupportLinks` (default `true`) hides them, and so does the "Hide" link next to them. There is no popup, and nothing is sent anywhere.
 - New commands "Avro and Arrow Viewer: Support the developer" and "Avro and Arrow Viewer: More free viewers". The second one lists the other Zovo extensions and installs only the one you pick. Ones that are not on the Marketplace yet open their GitHub page.
 - The listing gets a Sponsor button. The README has a short Support section and lists all Zovo extensions.
+- The "More free viewers" list and the README list now show the 15 Zovo extensions on the Marketplace under their current names, and 11 that are coming soon.
+- Extensions for related files now come first, starting with CSV Viewer, Excel Viewer & Parquet Viewer and JSONL Viewer & NDJSON Table Viewer.
 
 ## 0.1.0
 
