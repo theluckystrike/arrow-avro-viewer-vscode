@@ -25,7 +25,7 @@ Run "Avro and Arrow Viewer: Get Started" for a short tour.
 
 | Schema with types and nullability | Avro file with search results |
 |---|---|
-| <img src="images/schema-light.png" alt="The Schema tab of an Avro file in the light theme: field names, Avro types such as timestamp-millis and decimal(10,2), nullability, docs and the raw schema" width="100%"> | <img src="images/search-dark.png" alt="An Avro customers file filtered to the rows that contain Graz, with the address record of one row opened below" width="100%"> |
+| <img src="images/schema-light.png" alt="The Schema tab of an Avro file in the light theme, with field names, Avro types such as timestamp-millis and decimal(10,2), nullability, docs and the raw schema" width="100%"> | <img src="images/search-dark.png" alt="An Avro customers file filtered to the rows that contain Graz, with the address record of one row opened below" width="100%"> |
 
 ## What you can do
 
@@ -37,7 +37,7 @@ Click a header to compute stats for that column. The stats read every row (or ev
 
 Find matches text in any column, or in the one you pick, ignoring case. It runs in the extension host with a progress count. Cancel keeps the matches found so far. Show all rows clears the search.
 
-Export has four choices: this page as CSV or JSON, and all rows as CSV or JSON. After a search, "all rows" means all matches. Nested values go into CSV cells as JSON text. A CSV can open in Table Viewer by Zovo straight from the message that confirms the export.
+Export has four choices. You can save this page or all rows, each as CSV or JSON. After a search, "all rows" means all matches. Nested values go into CSV cells as JSON text. A CSV can open in Table Viewer by Zovo straight from the message that confirms the export.
 
 The Schema tab also shows the format, metadata version, compression or codec, the number of record batches or blocks, the dictionaries, the file metadata (for example the pandas metadata that pyarrow writes) and, for Avro, the raw schema JSON.
 
@@ -73,21 +73,39 @@ The extension runs offline. It makes no network calls and has no telemetry. It n
 | Setting | Default | What it does |
 |---|---|---|
 | `arrowAvroViewer.askForRating` | `true` | Ask one time for a Marketplace rating after a few days of use. Nothing is sent anywhere. |
+| `arrowAvroViewer.showSupportLinks` | `true` | Show the small Sponsor and More free viewers links in the status line. |
 
 ## Libraries
 
 Apache Arrow for JavaScript (Apache-2.0), avsc (MIT), fzstd (MIT), lz4js (ISC) and snappyjs (MIT). The license texts are in `THIRD-PARTY-NOTICES.txt`.
 
+## Support
+
+Zovo extensions have no ads and no tracking, and sponsors pay for the time that goes into fixes and new viewers. You can sponsor the work on [GitHub Sponsors](https://github.com/sponsors/theluckystrike).
+
 ## More viewers by Zovo
 
-- [AGENTS.md & CLAUDE.md Linter (Context Drift)](https://marketplace.visualstudio.com/items?itemName=zovo.context-drift) checks agent instruction files against your repo.
-- [PDF Viewer & Reader with Dark Mode](https://marketplace.visualstudio.com/items?itemName=zovo.pdf-viewer-dark) reads PDFs with dark mode, search and an outline.
-- [CSV Viewer, Excel Viewer & Parquet Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.table-viewer-vscode) opens CSV, Excel and Parquet files as a sortable table.
-- [DOCX Viewer & Word Viewer with Dark Mode](https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode) previews Word documents.
-- [HDF5 & NetCDF Explorer (H5 Viewer)](https://marketplace.visualstudio.com/items?itemName=zovo.hdf5-netcdf-explorer) browses HDF5 and NetCDF files.
-- [PPTX Viewer for PowerPoint Slides](https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer) shows PowerPoint slides.
-- [Agent Skills & Claude Skills (Skill Shelf)](https://marketplace.visualstudio.com/items?itemName=zovo.skill-shelf) manages agent skills.
-- [GGUF, Safetensors & NPY Tensor Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.tensor-viewer) inspects model and tensor files.
+- [Context Drift](https://marketplace.visualstudio.com/items?itemName=zovo.context-drift) finds stale facts in AGENTS.md, CLAUDE.md and other agent rule files.
+- [PDF Viewer & Reader with Dark Mode](https://marketplace.visualstudio.com/items?itemName=zovo.pdf-viewer-dark) reads PDFs with a real dark mode, search, an outline and thumbnails.
+- [CSV, Excel & Parquet Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.table-viewer-vscode) opens Parquet, Excel and CSV files as a sortable, filterable table.
+- [DOCX Viewer & Word Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.docx-viewer-vscode) previews Word files with dark mode, an outline and search.
+- [HDF5 & NetCDF Explorer](https://marketplace.visualstudio.com/items?itemName=zovo.hdf5-netcdf-explorer) browses groups, variables and attributes in scientific data files.
+- [PPTX Viewer for PowerPoint](https://marketplace.visualstudio.com/items?itemName=zovo.pptx-slide-viewer) shows PowerPoint slides, thumbnails and speaker notes.
+- [Skill Shelf](https://marketplace.visualstudio.com/items?itemName=zovo.skill-shelf) lists, checks and toggles the Agent Skills that Claude Code, Codex and Cursor load.
+- [Tensor Viewer](https://marketplace.visualstudio.com/items?itemName=zovo.tensor-viewer) shows NPY, NPZ, Safetensors and GGUF tensors with stats and heatmaps.
+
+Coming soon to the Marketplace, with the code on GitHub now.
+
+- [JSONL Viewer](https://github.com/theluckystrike/jsonl-viewer-vscode) opens JSONL and NDJSON files as a table, as records or as a chat view.
+- [SQLite Table Viewer](https://github.com/theluckystrike/sqlite-table-viewer) browses SQLite tables read-only and runs SELECT queries.
+- [Agent Session Viewer](https://github.com/theluckystrike/agent-session-viewer) browses and searches your local Claude Code and Codex sessions.
+- [Audio Preview & Loudness Meter](https://github.com/theluckystrike/audio-preview-vscode) plays audio files with a waveform, a spectrogram and LUFS loudness.
+- [Video Preview with Sound](https://github.com/theluckystrike/video-preview-vscode) plays MP4, MOV, MKV and WebM files with their sound.
+- [Graphviz Preview & DOT Viewer](https://github.com/theluckystrike/graphviz-preview-vscode) shows a live preview of DOT files and exports SVG or PNG.
+- [TIFF Viewer](https://github.com/theluckystrike/tiff-viewer-vscode) opens 16-bit, float, multi-page and GeoTIFF images.
+- [EML & MBOX Email Viewer](https://github.com/theluckystrike/eml-viewer-vscode) reads email files with remote images blocked.
+- [3D Model Viewer](https://github.com/theluckystrike/model-viewer-vscode) views GLB, glTF, STL, OBJ, PLY and 3MF models.
+- [File Viewers Pack](https://github.com/theluckystrike/zovo-file-viewers) installs the PDF, table, Word, PowerPoint, HDF5 and tensor viewers in one step.
 
 ## License
 

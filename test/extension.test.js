@@ -95,3 +95,35 @@ test('the editor opens a real file, answers ready and serves rows; a bad file sh
   assert.equal(p2.posted.find(m => m.type === 'error').fatal, true);
   p2.dispose && p2.dispose();
 });
+
+// ---------- support links (Sponsor, More free viewers) ----------
+test('support: package.json has the sponsor field, the two commands and the setting', () => {
+  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+  const support = require('../src/support');
+  assert.equal(pkg.sponsor.url, 'https://github.com/sponsors/theluckystrike');
+  assert.equal(pkg.sponsor.url, support.sponsorUrl());
+  const ids = pkg.contributes.commands.map(c => c.command);
+  assert.ok(ids.includes('arrowAvroViewer.supportDeveloper') && ids.includes('arrowAvroViewer.moreViewers'));
+  const prop = [].concat(pkg.contributes.configuration).map(c => c.properties['arrowAvroViewer.showSupportLinks']).find(Boolean);
+  assert.equal(prop.default, true);
+  assert.ok(support.otherProducts('zovo.arrow-avro-viewer').every(p => p.id !== 'zovo.arrow-avro-viewer'));
+});
+
+test('support: the footer shows by default and arrowAvroViewer.showSupportLinks=false hides it', async () => {
+  for (const [settings, shown] of [[{}, true], [{ showSupportLinks: false }, false]]) {
+    const reg = { editors: [], commands: [] };
+    const vscode = fakeVscode(reg);
+    vscode.workspace.getConfiguration = () => ({ get: (k, d) => (k in settings ? settings[k] : d) });
+    const ext = load(vscode);
+    ext.activate({ subscriptions: [], globalState: { get: () => undefined, update: async () => {} }, extensionUri: vscode.Uri.file('/ext') });
+    assert.ok(reg.commands.includes('arrowAvroViewer.supportDeveloper') && reg.commands.includes('arrowAvroViewer.moreViewers'));
+    const panel = fakePanel();
+    await reg.editors[0][1].resolveCustomEditor({ uri: vscode.Uri.file(T.file('sensor-readings.feather')) }, panel);
+    const html = panel.webview.html;
+    assert.equal(/id="zovo-support"/.test(html), shown, JSON.stringify(settings));
+    assert.equal(html.includes('command:arrowAvroViewer.supportDeveloper'), shown);
+    assert.deepEqual(panel.webview.options.enableCommandUris, ['arrowAvroViewer.supportDeveloper', 'arrowAvroViewer.moreViewers', 'workbench.action.openSettings']);
+    await waitFor(() => panel.posted.some(m => m.type === 'init'));
+    panel.dispose && panel.dispose();
+  }
+});

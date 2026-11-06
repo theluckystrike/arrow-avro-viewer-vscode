@@ -2,22 +2,61 @@
   "name": "arrow-avro-viewer",
   "displayName": "Avro Viewer, Arrow Viewer & Feather Viewer",
   "description": "Avro viewer, Arrow viewer and Feather viewer that opens .avro, .arrow, .feather and .ipc files as a fast paged table with schema, column stats, search and CSV or JSON export. No Python needed.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "zovo",
   "license": "MIT",
   "icon": "icon.png",
-  "galleryBanner": { "color": "#1B2340", "theme": "dark" },
-  "engines": { "vscode": "^1.90.0", "node": ">=18" },
-  "categories": ["Data Science", "Visualization", "Other"],
+  "galleryBanner": {
+    "color": "#1B2340",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.90.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Data Science",
+    "Visualization",
+    "Other"
+  ],
   "keywords": [
-    "avro viewer", "arrow viewer", "feather viewer", "avro", "apache arrow", "arrow", "feather", "ipc", "arrow ipc", "avro file",
-    "feather file", "pyarrow", "pandas", "polars", "dataframe", "data viewer", "table viewer", "schema", "kafka", "spark",
-    "data engineering", "data science", "big data", "lz4", "zstd", "snappy", "column stats", "export csv", "large files", "offline"
+    "avro viewer",
+    "arrow viewer",
+    "feather viewer",
+    "avro",
+    "apache arrow",
+    "arrow",
+    "feather",
+    "ipc",
+    "arrow ipc",
+    "avro file",
+    "feather file",
+    "pyarrow",
+    "pandas",
+    "polars",
+    "dataframe",
+    "data viewer",
+    "table viewer",
+    "schema",
+    "kafka",
+    "spark",
+    "data engineering",
+    "data science",
+    "big data",
+    "lz4",
+    "zstd",
+    "snappy",
+    "column stats",
+    "export csv",
+    "large files",
+    "offline"
   ],
   "main": "./dist/extension.js",
   "activationEvents": [],
   "capabilities": {
-    "untrustedWorkspaces": { "supported": true },
+    "untrustedWorkspaces": {
+      "supported": true
+    },
     "virtualWorkspaces": true
   },
   "contributes": {
@@ -26,25 +65,61 @@
         "viewType": "arrowAvroViewer.viewer",
         "displayName": "Avro and Arrow Viewer",
         "selector": [
-          { "filenamePattern": "*.arrow" },
-          { "filenamePattern": "*.arrows" },
-          { "filenamePattern": "*.feather" },
-          { "filenamePattern": "*.ipc" },
-          { "filenamePattern": "*.avro" }
+          {
+            "filenamePattern": "*.arrow"
+          },
+          {
+            "filenamePattern": "*.arrows"
+          },
+          {
+            "filenamePattern": "*.feather"
+          },
+          {
+            "filenamePattern": "*.ipc"
+          },
+          {
+            "filenamePattern": "*.avro"
+          }
         ],
         "priority": "default"
       }
     ],
     "commands": [
-      { "command": "arrowAvroViewer.open", "title": "Open in Avro and Arrow Viewer", "category": "Avro and Arrow Viewer", "icon": "$(table)" },
-      { "command": "arrowAvroViewer.getStarted", "title": "Get Started", "category": "Avro and Arrow Viewer" }
+      {
+        "command": "arrowAvroViewer.open",
+        "title": "Open in Avro and Arrow Viewer",
+        "category": "Avro and Arrow Viewer",
+        "icon": "$(table)"
+      },
+      {
+        "command": "arrowAvroViewer.getStarted",
+        "title": "Get Started",
+        "category": "Avro and Arrow Viewer"
+      },
+      {
+        "command": "arrowAvroViewer.supportDeveloper",
+        "title": "Support the developer",
+        "category": "Avro and Arrow Viewer"
+      },
+      {
+        "command": "arrowAvroViewer.moreViewers",
+        "title": "More free viewers",
+        "category": "Avro and Arrow Viewer"
+      }
     ],
     "menus": {
       "explorer/context": [
-        { "command": "arrowAvroViewer.open", "when": "resourceFilename =~ /\\.(arrow|arrows|feather|ipc|avro)$/i", "group": "navigation@20" }
+        {
+          "command": "arrowAvroViewer.open",
+          "when": "resourceFilename =~ /\\.(arrow|arrows|feather|ipc|avro)$/i",
+          "group": "navigation@20"
+        }
       ],
       "commandPalette": [
-        { "command": "arrowAvroViewer.open", "when": "resourceFilename =~ /\\.(arrow|arrows|feather|ipc|avro)$/i" }
+        {
+          "command": "arrowAvroViewer.open",
+          "when": "resourceFilename =~ /\\.(arrow|arrows|feather|ipc|avro)$/i"
+        }
       ]
     },
     "configuration": {
@@ -54,6 +129,11 @@
           "type": "boolean",
           "default": true,
           "description": "Ask one time for a Marketplace rating after you have used Avro and Arrow Viewer for a few days. You can answer \"Later\" or \"Don't ask again\". Nothing is sent anywhere."
+        },
+        "arrowAvroViewer.showSupportLinks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the small Sponsor and More free viewers links in the status line of the viewer. The change shows in files you open next. Nothing is sent anywhere."
         }
       }
     },
@@ -67,20 +147,28 @@
             "id": "open",
             "title": "Open a data file",
             "description": "Click any .avro, .arrow, .arrows, .feather or .ipc file. It opens as a table, and the first rows show right away while the rest is indexed.\n[Find a data file](command:workbench.action.quickOpen?%5B%22.avro%22%5D)",
-            "media": { "markdown": "walkthrough/open.md" },
-            "completionEvents": ["onCommand:workbench.action.quickOpen"]
+            "media": {
+              "markdown": "walkthrough/open.md"
+            },
+            "completionEvents": [
+              "onCommand:workbench.action.quickOpen"
+            ]
           },
           {
             "id": "explore",
             "title": "Schema, stats and search",
             "description": "The Schema tab lists every column with its type and nullability. Click a column header for stats (nulls, distinct, min, max, mean, most common). Find searches every row and can be cancelled.",
-            "media": { "markdown": "walkthrough/explore.md" }
+            "media": {
+              "markdown": "walkthrough/explore.md"
+            }
           },
           {
             "id": "export",
             "title": "Export to CSV or JSON",
             "description": "Export this page (1,000 rows) or all rows, or only the rows that match your search. A CSV opens in Table Viewer by Zovo if you have it.",
-            "media": { "markdown": "walkthrough/export.md" }
+            "media": {
+              "markdown": "walkthrough/export.md"
+            }
           }
         ]
       }
@@ -93,9 +181,14 @@
     "vscode:prepublish": "node scripts/build.js --production",
     "package": "npx -y @vscode/vsce@3 package --no-dependencies -o dist/"
   },
-  "repository": { "type": "git", "url": "https://github.com/theluckystrike/arrow-avro-viewer-vscode" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/arrow-avro-viewer-vscode"
+  },
   "homepage": "https://github.com/theluckystrike/arrow-avro-viewer-vscode#readme",
-  "bugs": { "url": "https://github.com/theluckystrike/arrow-avro-viewer-vscode/issues" },
+  "bugs": {
+    "url": "https://github.com/theluckystrike/arrow-avro-viewer-vscode/issues"
+  },
   "dependencies": {
     "apache-arrow": "21.2.0",
     "avsc": "5.7.9",
@@ -105,5 +198,8 @@
   },
   "devDependencies": {
     "esbuild": "0.28.2"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike"
   }
 }

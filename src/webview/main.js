@@ -119,6 +119,9 @@ status.append(statusLeft, statusMid, statusRight);
 const toast = el('div', 'toast');
 toast.hidden = true;
 app.append(toolbar, findbar, banner, main, status, toast);
+// The Sponsor and More free viewers line from the host HTML (absent when arrowAvroViewer.showSupportLinks is off).
+const supportLine = document.getElementById('zovo-support');
+if (supportLine) { supportLine.classList.remove('zovo-support-fixed'); status.append(supportLine); }
 
 let toastTimer = null;
 function flash(text) {

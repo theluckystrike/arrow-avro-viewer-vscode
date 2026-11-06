@@ -10,3 +10,4 @@ icon.svg
 dist/*.vsix
 *.vsix
 .e2e-work/**
+.github/**
