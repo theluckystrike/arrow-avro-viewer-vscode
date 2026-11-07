@@ -1,4 +1,4 @@
-# Avro Viewer, Arrow Viewer & Feather Viewer
+# Avro Viewer, Apache Arrow Viewer & Feather Viewer
 
 <a href="https://marketplace.visualstudio.com/items?itemName=zovo.arrow-avro-viewer"><img src="https://img.shields.io/visual-studio-marketplace/i/zovo.arrow-avro-viewer?label=VS%20Code%20installs" alt="VS Code installs"></a>
 <a href="https://marketplace.visualstudio.com/items?itemName=zovo.arrow-avro-viewer"><img src="https://img.shields.io/visual-studio-marketplace/v/zovo.arrow-avro-viewer?label=version" alt="Version"></a>

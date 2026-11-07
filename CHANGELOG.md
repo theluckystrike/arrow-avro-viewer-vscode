@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4 (2026-11-07)
+
+- The Marketplace name is now "Avro Viewer, Apache Arrow Viewer & Feather Viewer" (it was "Avro Viewer, Arrow Viewer & Feather Viewer"). The extension id, commands and settings stay the same.
+
 ## 0.1.3 (2026-11-07)
 
 - The Marketplace description now starts with "Avro viewer, Apache Arrow viewer and Feather viewer that opens ".
