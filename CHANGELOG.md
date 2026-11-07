@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 (2026-11-07)
+
+- The Marketplace description now starts with "Avro viewer, Apache Arrow viewer and Feather viewer that opens ".
+- Marketplace search keywords updated, with the phrases people search for first.
+
 ## 0.1.2 (2026-11-07)
 
 - "More free viewers" now starts with the Zovo extensions most related to this one. Picking one opens its Marketplace page, where you choose to install it.
