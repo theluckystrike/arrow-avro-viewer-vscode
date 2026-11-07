@@ -2,7 +2,7 @@
   "name": "arrow-avro-viewer",
   "displayName": "Avro Viewer, Apache Arrow Viewer & Feather Viewer",
   "description": "Avro viewer, Apache Arrow viewer and Feather viewer that opens .avro, .arrow, .feather and .ipc files as a fast paged table with schema, column stats, search and CSV or JSON export. No Python needed.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "zovo",
   "license": "MIT",
   "icon": "icon.png",
